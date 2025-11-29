@@ -220,7 +220,7 @@ class Elementor_Menu_Toggle_Widget extends \Elementor\Widget_Base {
             [
                 'name' => 'menu_container_border',
                 'label' => esc_html__('Border', 'elementor-menu-widget'),
-                'selector' => '{{WRAPPER}} .menu-container',
+                'selector' => '{{WRAPPER}} .menu-container:before',
             ]
         );
 
@@ -260,7 +260,7 @@ class Elementor_Menu_Toggle_Widget extends \Elementor\Widget_Base {
             [
                 'name' => 'menu_container_box_shadow',
                 'label' => esc_html__('Box Shadow', 'elementor-menu-widget'),
-                'selector' => '{{WRAPPER}} .menu-container',
+                'selector' => '{{WRAPPER}} .menu-container:before',
             ]
         );
 
