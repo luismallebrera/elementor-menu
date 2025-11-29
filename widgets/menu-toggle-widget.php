@@ -165,7 +165,7 @@ class Elementor_Menu_Toggle_Widget extends \Elementor\Widget_Base {
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#ffffff',
                 'selectors' => [
-                    '{{WRAPPER}} .menu-container' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .menu-container:before' => 'background-color: {{VALUE}}',
                 ],
             ]
         );
@@ -186,7 +186,7 @@ class Elementor_Menu_Toggle_Widget extends \Elementor\Widget_Base {
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .menu-container' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .menu-container:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -433,7 +433,6 @@ class Elementor_Menu_Toggle_Widget extends \Elementor\Widget_Base {
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .site-navigation-toggle' => 'background-color: {{VALUE}}',
-                    '{{WRAPPER}} .menu-text-wrapper:before' => 'background-color: {{VALUE}}',
                 ],
             ]
         );
