@@ -197,12 +197,11 @@ class Elementor_Menu_Toggle_Widget extends \Elementor\Widget_Base {
                         'step' => 1,
                     ],
                 ],
-                'default' => [
-                    'unit' => 'px',
-                    'size' => 0,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .menu-container:before' => 'backdrop-filter: blur({{SIZE}}{{UNIT}}); -webkit-backdrop-filter: blur({{SIZE}}{{UNIT}});',
+                ],
+                'condition' => [
+                    'backdrop_filter_blur[size]!' => '',
                 ],
             ]
         );
@@ -487,12 +486,11 @@ class Elementor_Menu_Toggle_Widget extends \Elementor\Widget_Base {
                         'step' => 1,
                     ],
                 ],
-                'default' => [
-                    'unit' => 'px',
-                    'size' => 0,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .site-navigation-toggle' => 'backdrop-filter: blur({{SIZE}}{{UNIT}}); -webkit-backdrop-filter: blur({{SIZE}}{{UNIT}});',
+                ],
+                'condition' => [
+                    'toggle_backdrop_blur[size]!' => '',
                 ],
             ]
         );
