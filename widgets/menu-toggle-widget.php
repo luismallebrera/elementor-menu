@@ -207,6 +207,15 @@ class Elementor_Menu_Toggle_Widget extends \Elementor\Widget_Base {
         );
 
         $this->add_group_control(
+            \Elementor\Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'menu_container_before_box_shadow',
+                'label' => esc_html__('Box Shadow', 'elementor-menu-widget'),
+                'selector' => '{{WRAPPER}} .menu-container:before',
+            ]
+        );
+
+        $this->add_group_control(
             \Elementor\Group_Control_Border::get_type(),
             [
                 'name' => 'menu_container_border',
@@ -525,6 +534,15 @@ class Elementor_Menu_Toggle_Widget extends \Elementor\Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .site-navigation-toggle' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'toggle_box_shadow',
+                'label' => esc_html__('Box Shadow', 'elementor-menu-widget'),
+                'selector' => '{{WRAPPER}} .site-navigation-toggle',
             ]
         );
 
