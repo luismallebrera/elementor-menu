@@ -1,0 +1,120 @@
+/* Menu Toggle Widget Styles */
+.site-navigation-toggle-holder {
+    display: inline-block;
+}
+
+.site-navigation-toggle {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+.site-navigation-toggle:hover {
+    opacity: 0.8;
+}
+
+.site-navigation-toggle:focus {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}
+
+/* Menu Text Wrapper */
+.menu-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-text {
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    display: block;
+    line-height: 1;
+}
+
+.menu-text-close {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+.menu-text-open {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Toggled State */
+.site-navigation-toggle.toggled .menu-text-open {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.site-navigation-toggle.toggled .menu-text-close {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Hamburger Icon */
+.hamburger {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    position: relative;
+}
+
+.hamburger .line {
+    width: 100%;
+    height: 2px;
+    background-color: currentColor;
+    display: block;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+/* Hamburger Animation - Toggled State */
+.site-navigation-toggle.toggled .hamburger .line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.site-navigation-toggle.toggled .hamburger .line:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.site-navigation-toggle.toggled .hamburger .line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .menu-text {
+        font-size: 12px;
+    }
+    
+    .hamburger {
+        width: 25px;
+        height: 25px;
+        gap: 4px;
+    }
+    
+    .site-navigation-toggle.toggled .hamburger .line:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+    }
+    
+    .site-navigation-toggle.toggled .hamburger .line:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+    }
+}
