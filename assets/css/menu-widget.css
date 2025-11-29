@@ -90,7 +90,7 @@
 
 /* Hamburger Animation - Toggled State */
 .site-navigation-toggle.toggled .hamburger .line:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
+    transform: translateY(5px) rotate(45deg);
 }
 
 .site-navigation-toggle.toggled .hamburger .line:nth-child(2) {
@@ -99,7 +99,7 @@
 }
 
 .site-navigation-toggle.toggled .hamburger .line:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
+    transform: translateY(-5px) rotate(-45deg);
 }
 
 /* Responsive */
