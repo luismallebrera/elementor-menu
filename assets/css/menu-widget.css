@@ -126,7 +126,7 @@
 /* Menu Container */
 .menu-container {
     position: absolute;
-    top: calc(100% + 10px);
+    top: 0px;
     right: 0;
     background: transparent;
     z-index: 1000;
