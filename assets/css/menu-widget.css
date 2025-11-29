@@ -131,7 +131,6 @@
     z-index: 1000;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-10px);
     transition: all 0.75s cubic-bezier(0.76, 0, 0.24, 1);
     pointer-events: none;
 }
@@ -146,18 +145,18 @@
     left: unset;
     transform: scaleY(0);
     transform-origin: top;
-    transition: all 0.75s cubic-bezier(0.76, 0, 0.24, 1);
+    transition: all 0.75s cubic-bezier(0.76, 0, 0.24, 1) 0.5s;
     z-index: -1;
 }
 
 .site-navigation-toggle.toggled ~ .menu-container:before {
     transform: scaleY(1);
+    transition-delay: 0s;
 }
 
 .site-navigation-toggle.toggled ~ .menu-container {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
     pointer-events: all;
 }
 
