@@ -1,6 +1,7 @@
 /* Menu Toggle Widget Styles */
 .site-navigation-toggle-holder {
     display: inline-block;
+    position: relative;
 }
 
 .site-navigation-toggle {
@@ -11,6 +12,8 @@
     border: none;
     padding: 10px;
     transition: all 0.3s ease;
+    position: relative;
+    z-index: 1001;
 }
 
 .site-navigation-toggle:hover {
@@ -113,3 +116,66 @@
         transform: translateY(-6px) rotate(-45deg);
     }
 }
+
+/* Menu Container */
+.menu-container {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.site-navigation-toggle.toggled ~ .menu-container {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+/* Menu Items */
+.menu-container .vertical-menu {
+    width: 100%;
+}
+
+.menu-container .menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-container .menu li {
+    margin-bottom: 10px;
+}
+
+.menu-container .menu li:last-child {
+    margin-bottom: 0;
+}
+
+.menu-container .menu a {
+    display: block;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.menu-container .menu a:hover {
+    opacity: 0.8;
+}
+
+/* Submenu styles */
+.menu-container .menu .sub-menu {
+    list-style: none;
+    padding-left: 15px;
+    margin-top: 5px;
+}
+
+.menu-container .menu .sub-menu li {
+    margin-bottom: 5px;
+}
+

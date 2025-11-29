@@ -88,6 +88,248 @@ class Elementor_Menu_Toggle_Widget extends \Elementor\Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'menu_heading',
+            [
+                'label' => esc_html__('WordPress Menu', 'elementor-menu-widget'),
+                'type' => \Elementor\Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
+
+        $menus = wp_get_nav_menus();
+        $menu_options = [];
+        foreach ($menus as $menu) {
+            $menu_options[$menu->term_id] = $menu->name;
+        }
+
+        $this->add_control(
+            'menu_id',
+            [
+                'label' => esc_html__('Select Menu', 'elementor-menu-widget'),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'options' => $menu_options,
+                'default' => !empty($menu_options) ? array_key_first($menu_options) : '',
+                'description' => esc_html__('Select a WordPress menu to display', 'elementor-menu-widget'),
+            ]
+        );
+
+        $this->end_controls_section();
+
+        // Menu Container Style Section
+        $this->start_controls_section(
+            'menu_container_section',
+            [
+                'label' => esc_html__('Menu Container', 'elementor-menu-widget'),
+                'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_responsive_control(
+            'menu_container_width',
+            [
+                'label' => esc_html__('Container Width', 'elementor-menu-widget'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px', '%', 'vw'],
+                'range' => [
+                    'px' => [
+                        'min' => 200,
+                        'max' => 600,
+                        'step' => 10,
+                    ],
+                    '%' => [
+                        'min' => 10,
+                        'max' => 100,
+                        'step' => 1,
+                    ],
+                    'vw' => [
+                        'min' => 10,
+                        'max' => 100,
+                        'step' => 1,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 300,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .menu-container' => 'width: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'menu_container_background',
+            [
+                'label' => esc_html__('Background Color', 'elementor-menu-widget'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'default' => '#ffffff',
+                'selectors' => [
+                    '{{WRAPPER}} .menu-container' => 'background-color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Border::get_type(),
+            [
+                'name' => 'menu_container_border',
+                'label' => esc_html__('Border', 'elementor-menu-widget'),
+                'selector' => '{{WRAPPER}} .menu-container',
+            ]
+        );
+
+        $this->add_responsive_control(
+            'menu_container_border_radius',
+            [
+                'label' => esc_html__('Border Radius', 'elementor-menu-widget'),
+                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .menu-container' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'menu_container_padding',
+            [
+                'label' => esc_html__('Padding', 'elementor-menu-widget'),
+                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'default' => [
+                    'top' => 20,
+                    'right' => 20,
+                    'bottom' => 20,
+                    'left' => 20,
+                    'unit' => 'px',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .menu-container' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'menu_container_box_shadow',
+                'label' => esc_html__('Box Shadow', 'elementor-menu-widget'),
+                'selector' => '{{WRAPPER}} .menu-container',
+            ]
+        );
+
+        $this->add_responsive_control(
+            'menu_container_top_offset',
+            [
+                'label' => esc_html__('Top Offset', 'elementor-menu-widget'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px', '%'],
+                'range' => [
+                    'px' => [
+                        'min' => -100,
+                        'max' => 100,
+                        'step' => 1,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 10,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .menu-container' => 'top: calc(100% + {{SIZE}}{{UNIT}});',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'menu_container_right_offset',
+            [
+                'label' => esc_html__('Right Offset', 'elementor-menu-widget'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px', '%'],
+                'range' => [
+                    'px' => [
+                        'min' => -100,
+                        'max' => 100,
+                        'step' => 1,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 0,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .menu-container' => 'right: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
+
+        // Menu Items Style Section
+        $this->start_controls_section(
+            'menu_items_section',
+            [
+                'label' => esc_html__('Menu Items', 'elementor-menu-widget'),
+                'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'menu_item_color',
+            [
+                'label' => esc_html__('Text Color', 'elementor-menu-widget'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'default' => '#333333',
+                'selectors' => [
+                    '{{WRAPPER}} .menu-container .menu a' => 'color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name' => 'menu_item_typography',
+                'selector' => '{{WRAPPER}} .menu-container .menu a',
+            ]
+        );
+
+        $this->add_responsive_control(
+            'menu_item_spacing',
+            [
+                'label' => esc_html__('Item Spacing', 'elementor-menu-widget'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 50,
+                        'step' => 1,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 10,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .menu-container .menu li' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'menu_item_hover_color',
+            [
+                'label' => esc_html__('Hover Color', 'elementor-menu-widget'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .menu-container .menu a:hover' => 'color: {{VALUE}}',
+                ],
+            ]
+        );
+
         $this->end_controls_section();
 
         // Style Section
@@ -305,6 +547,19 @@ class Elementor_Menu_Toggle_Widget extends \Elementor\Widget_Base {
                     </div>
                 <?php endif; ?>
             </div>
+            <?php if ($settings['menu_id']) : ?>
+                <div class="menu-container">
+                    <?php
+                    wp_nav_menu([
+                        'menu' => $settings['menu_id'],
+                        'container' => 'nav',
+                        'container_class' => 'vertical-menu',
+                        'menu_class' => 'menu',
+                        'fallback_cb' => false,
+                    ]);
+                    ?>
+                </div>
+            <?php endif; ?>
         </div>
         <?php
     }
@@ -331,6 +586,13 @@ class Elementor_Menu_Toggle_Widget extends \Elementor\Widget_Base {
                     </div>
                 <# } #>
             </div>
+            <# if (settings.menu_id) { #>
+                <div class="menu-container">
+                    <p style="padding: 20px; text-align: center; color: #999;">
+                        Menu preview available on frontend
+                    </p>
+                </div>
+            <# } #>
         </div>
         <?php
     }

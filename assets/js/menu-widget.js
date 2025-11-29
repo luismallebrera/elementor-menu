@@ -6,6 +6,7 @@
      */
     var MenuToggleHandler = function($scope, $) {
         var $toggle = $scope.find('.site-navigation-toggle');
+        var $menuContainer = $scope.find('.menu-container');
         
         if (!$toggle.length) {
             return;
@@ -23,6 +24,18 @@
                 e.preventDefault();
                 toggleMenu($(this));
             }
+        });
+
+        // Close menu when clicking outside
+        $(document).on('click', function(e) {
+            if (!$scope[0].contains(e.target) && $toggle.hasClass('toggled')) {
+                toggleMenu($toggle);
+            }
+        });
+
+        // Prevent menu container clicks from closing
+        $menuContainer.on('click', function(e) {
+            e.stopPropagation();
         });
 
         // Function to toggle menu
