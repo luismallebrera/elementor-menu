@@ -144,8 +144,14 @@
     top: 0;
     right: 0;
     left: unset;
+    transform: scaleY(0);
+    transform-origin: top;
     transition: all 0.75s cubic-bezier(0.76, 0, 0.24, 1);
     z-index: -1;
+}
+
+.site-navigation-toggle.toggled ~ .menu-container:before {
+    transform: scaleY(1);
 }
 
 .site-navigation-toggle.toggled ~ .menu-container {
