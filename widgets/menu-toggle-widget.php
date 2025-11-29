@@ -433,6 +433,7 @@ class Elementor_Menu_Toggle_Widget extends \Elementor\Widget_Base {
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .site-navigation-toggle' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .menu-text-wrapper:before' => 'background-color: {{VALUE}}',
                 ],
             ]
         );
