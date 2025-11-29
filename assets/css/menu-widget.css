@@ -167,7 +167,7 @@
 .menu-container .menu a {
     display: block;
     text-decoration: none;
-    transition: color 0.3s ease, transform 0.65s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition: color 0.3s ease, transform 0.65s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.35s linear;
     opacity: 0;
     transform: rotateX(90deg) translate3d(0, 60px, 0);
     transform-origin: center bottom;
@@ -176,47 +176,86 @@
 .site-navigation-toggle.toggled ~ .menu-container .menu a {
     opacity: 1;
     transform: rotateX(0deg) translate3d(0, 0px, 0);
-    transition: transform 0.65s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.35s linear;
 }
 
 .menu-container .menu li:nth-child(1) a {
-    transition-delay: 0.55s;
+    transition-delay: 0s, 0.55s, 0.55s;
+}
+
+.site-navigation-toggle.toggled ~ .menu-container .menu li:nth-child(1) a {
+    transition-delay: 0s, 0.55s, 0.55s;
 }
 
 .menu-container .menu li:nth-child(2) a {
-    transition-delay: 0.65s;
+    transition-delay: 0s, 0.65s, 0.65s;
+}
+
+.site-navigation-toggle.toggled ~ .menu-container .menu li:nth-child(2) a {
+    transition-delay: 0s, 0.65s, 0.65s;
 }
 
 .menu-container .menu li:nth-child(3) a {
-    transition-delay: 0.75s;
+    transition-delay: 0s, 0.75s, 0.75s;
+}
+
+.site-navigation-toggle.toggled ~ .menu-container .menu li:nth-child(3) a {
+    transition-delay: 0s, 0.75s, 0.75s;
 }
 
 .menu-container .menu li:nth-child(4) a {
-    transition-delay: 0.85s;
+    transition-delay: 0s, 0.85s, 0.85s;
+}
+
+.site-navigation-toggle.toggled ~ .menu-container .menu li:nth-child(4) a {
+    transition-delay: 0s, 0.85s, 0.85s;
 }
 
 .menu-container .menu li:nth-child(5) a {
-    transition-delay: 0.95s;
+    transition-delay: 0s, 0.95s, 0.95s;
+}
+
+.site-navigation-toggle.toggled ~ .menu-container .menu li:nth-child(5) a {
+    transition-delay: 0s, 0.95s, 0.95s;
 }
 
 .menu-container .menu li:nth-child(6) a {
-    transition-delay: 1.05s;
+    transition-delay: 0s, 1.05s, 1.05s;
+}
+
+.site-navigation-toggle.toggled ~ .menu-container .menu li:nth-child(6) a {
+    transition-delay: 0s, 1.05s, 1.05s;
 }
 
 .menu-container .menu li:nth-child(7) a {
-    transition-delay: 1.15s;
+    transition-delay: 0s, 1.15s, 1.15s;
+}
+
+.site-navigation-toggle.toggled ~ .menu-container .menu li:nth-child(7) a {
+    transition-delay: 0s, 1.15s, 1.15s;
 }
 
 .menu-container .menu li:nth-child(8) a {
-    transition-delay: 1.25s;
+    transition-delay: 0s, 1.25s, 1.25s;
+}
+
+.site-navigation-toggle.toggled ~ .menu-container .menu li:nth-child(8) a {
+    transition-delay: 0s, 1.25s, 1.25s;
 }
 
 .menu-container .menu li:nth-child(9) a {
-    transition-delay: 1.35s;
+    transition-delay: 0s, 1.35s, 1.35s;
+}
+
+.site-navigation-toggle.toggled ~ .menu-container .menu li:nth-child(9) a {
+    transition-delay: 0s, 1.35s, 1.35s;
 }
 
 .menu-container .menu li:nth-child(10) a {
-    transition-delay: 1.45s;
+    transition-delay: 0s, 1.45s, 1.45s;
+}
+
+.site-navigation-toggle.toggled ~ .menu-container .menu li:nth-child(10) a {
+    transition-delay: 0s, 1.45s, 1.45s;
 }
 
 .menu-container .menu a:hover {
