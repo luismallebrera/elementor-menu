@@ -184,6 +184,29 @@ class Elementor_Menu_Toggle_Widget extends \Elementor\Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'backdrop_filter_blur',
+            [
+                'label' => esc_html__('Backdrop Blur', 'elementor-menu-widget'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 50,
+                        'step' => 1,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 0,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .menu-container:before' => 'backdrop-filter: blur({{SIZE}}{{UNIT}}); -webkit-backdrop-filter: blur({{SIZE}}{{UNIT}});',
+                ],
+            ]
+        );
+
         $this->add_group_control(
             \Elementor\Group_Control_Border::get_type(),
             [
@@ -447,6 +470,29 @@ class Elementor_Menu_Toggle_Widget extends \Elementor\Widget_Base {
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .site-navigation-toggle' => 'background-color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'toggle_backdrop_blur',
+            [
+                'label' => esc_html__('Backdrop Blur', 'elementor-menu-widget'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 50,
+                        'step' => 1,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 0,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .site-navigation-toggle' => 'backdrop-filter: blur({{SIZE}}{{UNIT}}); -webkit-backdrop-filter: blur({{SIZE}}{{UNIT}});',
                 ],
             ]
         );
