@@ -97,6 +97,9 @@ final class Elementor_Menu_Widget {
     public function register_widgets($widgets_manager) {
         require_once(__DIR__ . '/widgets/menu-toggle-widget.php');
         $widgets_manager->register(new \Elementor_Menu_Toggle_Widget());
+        
+        require_once(__DIR__ . '/widgets/menu-toggle-widget-v2.php');
+        $widgets_manager->register(new \Elementor_Menu_Toggle_Widget_V2());
     }
 
     public function widget_styles() {
