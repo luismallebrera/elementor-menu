@@ -175,6 +175,112 @@ class Elementor_Menu_Toggle_Widget extends \Elementor\Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'background_heading',
+            [
+                'label' => esc_html__('Background & Border', 'elementor-menu-widget'),
+                'type' => \Elementor\Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
+
+        $this->add_control(
+            'background_color',
+            [
+                'label' => esc_html__('Background Color', 'elementor-menu-widget'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .site-navigation-toggle' => 'background-color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Border::get_type(),
+            [
+                'name' => 'border',
+                'label' => esc_html__('Border', 'elementor-menu-widget'),
+                'selector' => '{{WRAPPER}} .site-navigation-toggle',
+            ]
+        );
+
+        $this->add_responsive_control(
+            'border_radius',
+            [
+                'label' => esc_html__('Border Radius', 'elementor-menu-widget'),
+                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .site-navigation-toggle' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'padding',
+            [
+                'label' => esc_html__('Padding', 'elementor-menu-widget'),
+                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .site-navigation-toggle' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'hover_heading',
+            [
+                'label' => esc_html__('Hover State', 'elementor-menu-widget'),
+                'type' => \Elementor\Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
+
+        $this->add_control(
+            'hover_background_color',
+            [
+                'label' => esc_html__('Hover Background Color', 'elementor-menu-widget'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .site-navigation-toggle:hover' => 'background-color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'hover_border_color',
+            [
+                'label' => esc_html__('Hover Border Color', 'elementor-menu-widget'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .site-navigation-toggle:hover' => 'border-color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'hover_text_color',
+            [
+                'label' => esc_html__('Hover Text Color', 'elementor-menu-widget'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .site-navigation-toggle:hover .menu-text' => 'color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'hover_hamburger_color',
+            [
+                'label' => esc_html__('Hover Hamburger Color', 'elementor-menu-widget'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .site-navigation-toggle:hover .hamburger .line' => 'background-color: {{VALUE}}',
+                ],
+            ]
+        );
+
         $this->end_controls_section();
     }
 
