@@ -159,6 +159,20 @@ class Elementor_Menu_Toggle_Widget extends \Elementor\Widget_Base {
         );
 
         $this->add_control(
+            'background_animation_type',
+            [
+                'label' => esc_html__('Background Animation', 'elementor-menu-widget'),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'options' => [
+                    'scale-top' => esc_html__('Scale from Top (Y)', 'elementor-menu-widget'),
+                    'scale-corner' => esc_html__('Scale from Corner (X & Y)', 'elementor-menu-widget'),
+                    'scale-right' => esc_html__('Scale from Right (X)', 'elementor-menu-widget'),
+                ],
+                'default' => 'scale-top',
+            ]
+        );
+
+        $this->add_control(
             'menu_container_background',
             [
                 'label' => esc_html__('Background Color', 'elementor-menu-widget'),
@@ -548,7 +562,7 @@ class Elementor_Menu_Toggle_Widget extends \Elementor\Widget_Base {
                 <?php endif; ?>
             </div>
             <?php if ($settings['menu_id']) : ?>
-                <div class="menu-container">
+                <div class="menu-container animation-<?php echo esc_attr($settings['background_animation_type']); ?>">
                     <?php
                     wp_nav_menu([
                         'menu' => $settings['menu_id'],
@@ -587,7 +601,7 @@ class Elementor_Menu_Toggle_Widget extends \Elementor\Widget_Base {
                 <# } #>
             </div>
             <# if (settings.menu_id) { #>
-                <div class="menu-container">
+                <div class="menu-container animation-{{{ settings.background_animation_type }}}">
                     <p style="padding: 20px; text-align: center; color: #999;">
                         Menu preview available on frontend
                     </p>

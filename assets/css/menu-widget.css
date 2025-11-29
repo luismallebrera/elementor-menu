@@ -150,8 +150,37 @@
     z-index: -1;
 }
 
-.site-navigation-toggle.toggled ~ .menu-container:before {
+/* Animation Type: Scale from Top (Y) - Default */
+.menu-container.animation-scale-top:before {
+    transform: scaleY(0);
+    transform-origin: top;
+}
+
+.site-navigation-toggle.toggled ~ .menu-container.animation-scale-top:before {
     transform: scaleY(1);
+}
+
+/* Animation Type: Scale from Corner (X & Y) */
+.menu-container.animation-scale-corner:before {
+    transform: scale(0);
+    transform-origin: top right;
+}
+
+.site-navigation-toggle.toggled ~ .menu-container.animation-scale-corner:before {
+    transform: scale(1);
+}
+
+/* Animation Type: Scale from Right (X) */
+.menu-container.animation-scale-right:before {
+    transform: scaleX(0);
+    transform-origin: right;
+}
+
+.site-navigation-toggle.toggled ~ .menu-container.animation-scale-right:before {
+    transform: scaleX(1);
+}
+
+.site-navigation-toggle.toggled ~ .menu-container:before {
     transition-delay: 0s;
 }
 
