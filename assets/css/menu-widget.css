@@ -17,11 +17,6 @@
     opacity: 1;
 }
 
-.site-navigation-toggle:focus {
-    outline: 2px solid currentColor;
-    outline-offset: 2px;
-}
-
 /* Menu Text Wrapper */
 .menu-text-wrapper {
     display: flex;
