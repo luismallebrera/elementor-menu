@@ -12,6 +12,16 @@
             return;
         }
 
+        // Add submenu arrows and classes
+        $menuContainer.find('.menu li').each(function() {
+            if ($(this).find('> .sub-menu').length) {
+                $(this).addClass('menu-item-has-children');
+                if (!$(this).find('> a .sub-arrow').length) {
+                    $(this).find('> a').append('<span class="sub-arrow"><i class="fa fa-chevron-down"></i></span>');
+                }
+            }
+        });
+
         // Toggle menu on click
         $toggle.on('click', function(e) {
             e.preventDefault();
@@ -38,6 +48,26 @@
             e.stopPropagation();
         });
 
+        // Handle submenu toggle
+        $menuContainer.find('.menu-item-has-children > a').on('click', function(e) {
+            var $link = $(this);
+            var $menuItem = $link.parent();
+            
+            // Check if click was on arrow
+            if ($(e.target).closest('.sub-arrow').length) {
+                e.preventDefault();
+                $menuItem.toggleClass('submenu-open');
+                return false;
+            }
+            
+            // If link is just #, prevent default and toggle submenu
+            if ($link.attr('href') === '#' || $link.attr('href') === '') {
+                e.preventDefault();
+                $menuItem.toggleClass('submenu-open');
+                return false;
+            }
+        });
+
         // Function to toggle menu
         function toggleMenu($element) {
             var isToggled = $element.hasClass('toggled');
@@ -46,6 +76,9 @@
                 // Close menu
                 $element.removeClass('toggled');
                 $element.attr('aria-expanded', 'false');
+                
+                // Close all submenus
+                $menuContainer.find('.menu-item-has-children').removeClass('submenu-open');
                 
                 // Trigger custom event for menu close
                 $(document).trigger('menuToggleClose');
